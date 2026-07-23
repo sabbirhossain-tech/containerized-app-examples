@@ -1,0 +1,22 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /nextjs-standalone
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /angular-spa
+    schedule:
+      interval: weekly
+  - package-ecosystem: pip
+    directory: /fastapi
+    schedule:
+      interval: weekly
+  - package-ecosystem: nuget
+    directory: /dotnet10-api
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly

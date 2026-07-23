@@ -1,0 +1,24 @@
+name: Docker validation
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        example:
+          - nextjs-standalone
+          - angular-spa
+          - fastapi
+          - dotnet10-api
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build --tag sample-${{ matrix.example }}:${{ github.sha }} ${{ matrix.example }}
